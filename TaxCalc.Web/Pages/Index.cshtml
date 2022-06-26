@@ -1,0 +1,64 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<section class="signup-section" id="signup">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+                <h2 class="text-white mb-5">Welcome to the demo Tax Calculator</h2>
+                <form id="taxForm" method="post" asp-action="">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <input class="form-control" id="annualIncome" type="number" placeholder="Enter annual income..." aria-label="Enter annual income..." asp-for="TaxCalculationModel.Income" />
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <select class="form-control" data-sb-validations="required" id="postalCode" asp-for="TaxCalculationModel.PostalCode">
+                                    <option selected disabled>Select postal code</option>
+                                    @foreach(var postalCode in Model.GetPostalCodes())
+                                    {
+                                        <option value="@postalCode">@postalCode</option>    
+                                    }
+                                </select>
+                                <br />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-auto">
+                                <button class="btn btn-primary" id="submitButton" type="submit">Calculate</button>              
+                            </div>
+                        </div>
+
+                        
+                        
+                    </div>
+
+
+                    @if(Model.TaxCalculationModel?.IsPostBack == true)
+                    {
+                        <div id="taxPayable">
+                            <div class="text-center mb-3 mt-2 text-white">
+                                Tax Payable on @($"R {Model.TaxCalculationModel.Income}") for postal code @Model.TaxCalculationModel.PostalCode:
+                                <br />
+                                <div class="fw-bolder">@($"R {Model.TaxCalculationModel.TaxPayable.ToString("0.00")}")</div>
+                            </div>
+                        </div>    
+                    }
+                    
+                    
+                    
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
