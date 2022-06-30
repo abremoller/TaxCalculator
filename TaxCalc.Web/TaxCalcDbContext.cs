@@ -11,6 +11,6 @@ namespace TaxCalc.Web
         {
         }
 
-        public DbSet<TaxCalculationModel> TaxCalculation => Set<TaxCalculationModel>();
+        public DbSet<TaxCalculationDataModel> TaxCalculation => Set<TaxCalculationDataModel>();
     }
 }

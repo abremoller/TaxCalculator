@@ -5,9 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7193/") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri( builder.Configuration["CalculatorServiceAddress"]) });
 builder.Services.AddDbContext<TaxCalcDbContext>(options =>
-    options.UseInMemoryDatabase("TaxCalcDb"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnectionString"))
+    );
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TaxCalc.API.Data;
 
 namespace TaxCalc.API
 {
@@ -10,6 +11,6 @@ namespace TaxCalc.API
         {
         }
 
-        
+        public DbSet<PostalCodes> PostalCodes => Set<PostalCodes>();
     }
 }

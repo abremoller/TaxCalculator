@@ -32,6 +32,10 @@ namespace TaxCalc.Web.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+            //TODO Add error message to UI
+            if (String.IsNullOrEmpty(TaxCalculationModel.PostalCode))
+                return Page();
+
             try
             {
                 LogToDb();
@@ -58,8 +62,8 @@ namespace TaxCalc.Web.Pages
 
         private void LogToDb()
         {
-            TaxCalculationModel.DateTime = DateTime.Now;
-            _dataContext.Add(TaxCalculationModel);
+            TaxCalculationDataModel dataModel = new TaxCalculationDataModel() { DateTime = DateTime.Now, Income = TaxCalculationModel.Income, PostalCode = TaxCalculationModel.PostalCode };
+            _dataContext.Add(dataModel);
             _dataContext.SaveChanges();
         }
     }
