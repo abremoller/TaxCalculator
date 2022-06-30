@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TaxCalc.Web.Models
+namespace TaxCalc.API.Data
 {
     public class TaxCalculationDataModel
     {

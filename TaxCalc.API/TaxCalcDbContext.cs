@@ -12,5 +12,6 @@ namespace TaxCalc.API
         }
 
         public DbSet<PostalCodes> PostalCodes => Set<PostalCodes>();
+        public DbSet<TaxCalculationDataModel> TaxCalculation => Set<TaxCalculationDataModel>();
     }
 }

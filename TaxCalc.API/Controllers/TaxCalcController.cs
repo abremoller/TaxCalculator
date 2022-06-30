@@ -25,11 +25,21 @@ namespace TaxCalc.API.Controllers
         [HttpGet(Name = "GetPersonalTaxPayable")]
         public decimal GetPersonalTaxPayable(string postalCode, int income)
         {
+            LogToDb(postalCode, income);
+
             var code = _postalCodes.FirstOrDefault(x => x.Code == postalCode);
 
-            if (code == null) return 0;
+            if (code == null) 
+                return 0;
 
             return TaxCalculator.CalculateTax(code.TaxType, income);
+        }
+
+        private void LogToDb(string postalCode, int income)
+        {
+            TaxCalculationDataModel dataModel = new TaxCalculationDataModel() { DateTime = DateTime.Now, Income = income, PostalCode = postalCode };
+            _dataContext.Add(dataModel);
+            _dataContext.SaveChanges();
         }
     }
 }
