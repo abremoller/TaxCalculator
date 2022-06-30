@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalc.Web", "TaxCalc.Web\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalc.API", "TaxCalc.API\TaxCalc.API.csproj", "{63C7556A-B36A-47D9-B145-057A83C9A3C0}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TaxCalc.DB", "TaxCalc.DB\TaxCalc.DB.sqlproj", "{243A5643-3653-4CF7-A273-B9AC345C6459}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{63C7556A-B36A-47D9-B145-057A83C9A3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63C7556A-B36A-47D9-B145-057A83C9A3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63C7556A-B36A-47D9-B145-057A83C9A3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{243A5643-3653-4CF7-A273-B9AC345C6459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{243A5643-3653-4CF7-A273-B9AC345C6459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{243A5643-3653-4CF7-A273-B9AC345C6459}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{243A5643-3653-4CF7-A273-B9AC345C6459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{243A5643-3653-4CF7-A273-B9AC345C6459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{243A5643-3653-4CF7-A273-B9AC345C6459}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
